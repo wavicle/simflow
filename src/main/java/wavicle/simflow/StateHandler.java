@@ -4,13 +4,25 @@ import java.util.Map;
 
 public interface StateHandler {
 	public static class StateOutput {
-		public final Map<String, Object> output;
 		public final String proposedTransition;
+		public final Map<String, Object> output;
 
-		public StateOutput(Map<String, Object> output, String proposedTransition) {
+		public StateOutput(String proposedTransition, Map<String, Object> output) {
 			super();
-			this.output = output;
 			this.proposedTransition = proposedTransition;
+			this.output = output;
+		}
+
+		public StateOutput(String proposedTransition) {
+			super();
+			this.proposedTransition = proposedTransition;
+			this.output = null;
+		}
+
+		public StateOutput(Map<String, Object> output) {
+			super();
+			this.proposedTransition = null;
+			this.output = output;
 		}
 
 	}

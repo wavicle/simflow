@@ -17,18 +17,18 @@ public class SimpleTestSuite {
 		/** Define the process and add some states to it, along with their behavior **/
 		Process process = new Process();
 		process.addState("start", (input, session) -> {
-			return new StateOutput(null, "next");
+			return new StateOutput("next");
 		});
 		process.addState("askFirstName", (input, session) -> {
 			session.put("firstName", "Shashank");
-			return new StateOutput(null, "next");
+			return new StateOutput("next");
 		});
 		process.addState("calcFullName", (input, session) -> {
 			String firstName = (String) session.get("firstName");
-			return new StateOutput(Collections.singletonMap("out", firstName + " Araokar"), "next");
+			return new StateOutput("next", Collections.singletonMap("out", firstName + " Araokar"));
 		});
 		process.addState("tellName", (input, session) -> {
-			return new StateOutput(Collections.singletonMap("out", "Your name is: " + input.get("out")), null);
+			return new StateOutput(Collections.singletonMap("out", "Your name is: " + input.get("out")));
 		});
 
 		/** Specify how the process transitions from one state to another **/
