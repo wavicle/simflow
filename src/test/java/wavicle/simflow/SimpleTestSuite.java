@@ -48,7 +48,7 @@ public class SimpleTestSuite {
 
 		/**
 		 * Note that we are simulating the 'next' call on the process. In a real-world
-		 * application, this will happen when the user clisk the 'Submit' button, for
+		 * application, this will happen when the user clicks the 'Submit' button, for
 		 * example.
 		 */
 		stateOutput = inst.followTransition("next", stateOutput.output);
